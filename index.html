@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Speed Prediction</title>
+    <style>
+        /* Style for body */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20240125175802/First-Page.jpg'); /* Replace 'background.jpg' with your image file path */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for header */
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background color */
+        }
+
+        /* Style for navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Style for form */
+        form {
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color */
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            
+        }
+
+        form label, form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff; /* Button color */
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3; /* Button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Wind Speed Prediction</h1>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/web2/templates/home.html">Home </a></li>
+                <li><a href="http://127.0.0.1:5500/web2/templates/About.html">About Us</a></li>
+                <li><a href="http://127.0.0.1:5500/web2/templates/Contact.html">Contact Us</a></li>
+                <li><a href="http://127.0.0.1:5500/web2/templates/index.html">Wind Prediction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form action="http://127.0.0.1:5000/" method="post">
+        <label for="ind">IND:</label>
+        <input type="number" name="ind" id="ind" step="0.01" required><br>
+        <label for="rain">RAIN:</label>
+        <input type="number" name="rain" id="rain" step="0.01" required><br>
+        <label for="ind_1">IND.1:</label>
+        <input type="number" name="ind_1" id="ind_1" step="0.01" required><br>
+        <label for="t_max">T.MAX:</label>
+        <input type="number" name="t_max" id="t_max" step="0.01" required><br>
+        <label for="ind_2">IND.2:</label>
+        <input type="number" name="ind_2" id="ind_2" step="0.01" required><br>
+        <label for="t_min">T.MIN:</label>
+        <input type="number" name="t_min" id="t_min" step="0.01" required><br>
+        <label for="t_min_g">T.MIN.G:</label>
+        <input type="number" name="t_min_g" id="t_min_g" step="0.01" required><br>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

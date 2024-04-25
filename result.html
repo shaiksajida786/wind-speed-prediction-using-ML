@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Speed Prediction Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://www.schaeffler.ph/remotemedien/media/_shared_media_rwd/04_sectors_1/industry_1/windpower_1/47120_header-schaeffler-industry-solutions-wind-wind.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Style for header */
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background color */
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Style for navigation bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-left: 20px;
+           
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Display navigation links in a row */
+            margin-left: 900px;
+        }
+
+        nav ul li {
+            margin-right: 10px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0; /* Remove margin for the last link */
+        }
+
+        nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    /* background-color: #007bff; */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+
+
+
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-left: 10px;
+            font-size: 28px; /* Decrease font size of the heading */
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+            text-align: left;
+            font-size: 18px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            /* background-color: #007bff; */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+        }
+
+      /* .container,  a:hover {
+            background-color: #0056b3;
+        } */
+
+        canvas {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:white; text-align: left;">Wind Speed Prediction</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About US</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="index.html">Wind Prediction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Wind Speed Prediction Result</h1>
+        <p><strong>Speed:</strong> {{ prediction }}</p>
+        <p><strong>Weather Condition:</strong> {{ weather_condition }}</p>
+        <p><strong>Description:</strong> {{ description }}</p>
+        <p><strong>Damage Effects:</strong> {{ damage_effects }}</p>
+        <a href="/" style="  color:blue; font-size: bold;">Try Again</a>
+    </div>
+
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        // Get the canvas element
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Parse chart data passed from Flask
+        var chartData = JSON.parse('{{ chart_data | tojson | safe }}');
+
+        // Create the chart
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["IND", "RAIN", "IND.1", "T.MAX", "IND.2", "T.MIN", "T.MIN.G"],
+                datasets: [{
+                    label: "Wind Speed",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    data: chartData[0], // Use the first array in chartData as the data
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

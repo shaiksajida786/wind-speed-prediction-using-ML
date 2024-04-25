@@ -1,0 +1,155 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 50px 0;
+}
+
+#hero {
+    background-image: url('wind.jpeg'); /* Replace 'hero-image.jpg' with your actual image path */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+#about, #contact, #predictions {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+/* Style for header */
+header {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background color */
+}
+
+/* Style for navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Style for testimonials section */
+#testimonials {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.testimonials-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    margin-bottom: 30px;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #333;
+}
+
+.testimonial .author {
+    font-weight: bold;
+}
+/* Style for key features section */
+#features {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.features-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-content h2 {
+    color: #333;
+}
+
+.features-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features-content ul li {
+    margin-bottom: 10px;
+}
+
+.features-content ul li::before {
+    content: "\2022"; /* Bullet point */
+    color: #ff6600; /* Bullet point color */
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.features-content ul li {
+    margin-left: 1em; /* Adjust indentation */
+}
